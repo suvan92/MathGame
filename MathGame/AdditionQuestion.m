@@ -19,20 +19,42 @@
     return randomNumber;
 }
 
+- (NSString *)correctAnswerString {
+    
+    _endTime = [NSDate date];
+    
+    return _correctAnswerString;
+}
+
 -(id) init {
     
     self = [super init];
     
-    _number1 = [self randomValue];
-    _number2 = [self randomValue];
-    
-    _aQuestion = [NSString stringWithFormat:@"What is %d + %d?", _number1, _number2];
-    
-    _realAnswer = _number1 + _number2;
-    
-    _correctAnswerString = [NSString stringWithFormat:@"%d", _realAnswer];
+    if (self) {
+        
+        _number1 = [self randomValue];
+        _number2 = [self randomValue];
+        
+        _aQuestion = [NSString stringWithFormat:@"What is %d + %d?", _number1, _number2];
+        
+        NSLog(@"%@", self.aQuestion);
+        
+        _realAnswer = _number1 + _number2;
+        
+        _correctAnswerString = [NSString stringWithFormat:@"%d", _realAnswer];
+        
+        _startTime = [NSDate date];
+        
+    }
     
     return self;
+}
+
+-(NSTimeInterval) answerTime {
+    
+    NSTimeInterval answerTime = [self.endTime timeIntervalSinceDate:self.startTime];
+    
+    return answerTime;
 }
 
 

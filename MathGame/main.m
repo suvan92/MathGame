@@ -10,17 +10,20 @@
 #import "AdditionQuestion.h"
 #import "ScoreKeeper.h"
 #import "InputHandler.h"
+#import "QuestionManager.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         ScoreKeeper *yourScore = [[ScoreKeeper alloc] init];
         
+        QuestionManager *sessionQuestions = [[QuestionManager alloc] init];
+        
         while (YES) {
             
             AdditionQuestion *question = [[AdditionQuestion alloc] init];
             
-            NSLog(@"%@", question.aQuestion);
+            [sessionQuestions.questions addObject:question];
             
             InputHandler *userInput = [[InputHandler alloc] init];
             
@@ -28,7 +31,8 @@ int main(int argc, const char * argv[]) {
             
             if ([answerString isEqualToString:@"quit"]) {
                 
-                NSLog(@"Your got %d correct, and %d wrong", yourScore.correct, yourScore.wrong);
+                NSLog(@"Score: %d correct, %d wrong", yourScore.correct, yourScore.wrong);
+                NSLog(@"%@", [sessionQuestions timeOutput]);
                 
                 break;
             }
@@ -38,14 +42,21 @@ int main(int argc, const char * argv[]) {
                 NSLog(@"Correct!");
                 [yourScore gotOneRight];
                 
-            } else {
+                NSLog(@"Score: %d correct, %d wrong", yourScore.correct, yourScore.wrong);
+                NSLog(@"%@", [sessionQuestions timeOutput]);
+                
+            } else if ([question.correctAnswerString isNotEqualTo:answerString]) {
                 
                 NSLog(@"Wrong :(");
                 [yourScore gotOneWrong];
                 
+                NSLog(@"Score: %d correct, %d wrong", yourScore.correct, yourScore.wrong);
+                NSLog(@"%@", [sessionQuestions timeOutput]);
+                
+            }
+                
             }
             
-        }
         
     }
     return 0;

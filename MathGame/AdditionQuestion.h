@@ -17,8 +17,12 @@
 @property (nonatomic, strong) NSString *aQuestion;
 @property (nonatomic, assign) int realAnswer;
 @property (nonatomic, strong) NSString *correctAnswerString;
+@property (nonatomic, strong) NSDate *startTime;
+@property (nonatomic, strong) NSDate *endTime;
 
 -(id) init;
+
+-(NSTimeInterval) answerTime;
 
 
 @end
