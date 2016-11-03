@@ -2,7 +2,7 @@
 //  QuestionManager.m
 //  MathGame
 //
-//  Created by Suvan Ramani on 2016-11-02.
+//  Created by Ali Dahesh on 2016-11-02.
 //  Copyright © 2016 suvanr. All rights reserved.
 //
 
