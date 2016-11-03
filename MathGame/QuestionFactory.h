@@ -1,5 +1,5 @@
 //
-//  QuestionManager.h
+//  QuestionFactory.h
 //  MathGame
 //
 //  Created by Suvan Ramani on 2016-11-02.
@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Question.h"
+#import <stdlib.h>
 
-@interface QuestionManager : NSObject
+@interface QuestionFactory : NSObject
 
-@property (nonatomic, strong) NSMutableArray *questions;
 
--(id)init;
-
--(NSString *)timeOutput;
+-(instancetype) init;
+-(Question *)generateRandomQuestion;
 
 @end

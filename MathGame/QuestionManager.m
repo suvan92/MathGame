@@ -30,7 +30,7 @@
     
     for (int i = 0; i < self.questions.count; i++) {
         
-        AdditionQuestion *currentQuestion = [self.questions objectAtIndex:i];
+        Question *currentQuestion = [self.questions objectAtIndex:i];
         
         totalTime += currentQuestion.answerTime;
     }

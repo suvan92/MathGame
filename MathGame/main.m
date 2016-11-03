@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AdditionQuestion.h"
+#import "Question.h"
 #import "ScoreKeeper.h"
 #import "InputHandler.h"
 #import "QuestionManager.h"
+#import "QuestionFactory.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -19,9 +20,11 @@ int main(int argc, const char * argv[]) {
         
         QuestionManager *sessionQuestions = [[QuestionManager alloc] init];
         
+        QuestionFactory *questionTypeSelector = [[QuestionFactory alloc] init];
+
         while (YES) {
             
-            AdditionQuestion *question = [[AdditionQuestion alloc] init];
+            Question *question = [questionTypeSelector generateRandomQuestion];
             
             [sessionQuestions.questions addObject:question];
             

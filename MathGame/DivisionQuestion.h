@@ -1,5 +1,5 @@
 //
-//  AdditionQuestion.h
+//  DivisionQuestion.h
 //  MathGame
 //
 //  Created by Suvan Ramani on 2016-11-02.
@@ -8,7 +8,7 @@
 
 #import "Question.h"
 
-@interface AdditionQuestion : Question
+@interface DivisionQuestion : Question
 
 -(instancetype)init;
 
